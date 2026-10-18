@@ -21,11 +21,7 @@ mock_mixed_data <- function(n_users = 50, seed = NULL) {
     cli::cli_abort("{.arg n_users} must be a single positive whole number.")
   }
   if (!is.null(seed)) {
-    old_seed <- if (exists(".Random.seed", envir = globalenv())) get(".Random.seed", envir = globalenv())
-    on.exit({
-      if (is.null(old_seed)) rm(".Random.seed", envir = globalenv())
-      else assign(".Random.seed", old_seed, envir = globalenv())
-    }, add = TRUE)
+    withr::local_preserve_seed()
     set.seed(seed)
   }
 

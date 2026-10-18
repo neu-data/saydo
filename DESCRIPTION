@@ -25,7 +25,8 @@ Imports:
     ggplot2 (>= 3.5.0),
     rlang,
     stats,
-    tibble
+    tibble,
+    withr
 Suggests:
     knitr,
     rmarkdown,
