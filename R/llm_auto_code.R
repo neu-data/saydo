@@ -22,7 +22,7 @@
 #' @param max_active Maximum number of concurrent LLM requests.
 #'
 #' @return `data` with one logical column per code. Missing or empty texts get
-#'   `NA`. The codebook is stored in the `"llmCoder_codebook"` attribute so
+#'   `NA`. The codebook is stored in the `"saydo_codebook"` attribute so
 #'   [cross_tab_themes()] can find the code columns automatically.
 #' @export
 #'
@@ -84,8 +84,8 @@ llm_auto_code <- function(data, id_col, text_col, codebook,
   }
 
   out <- tibble::as_tibble(cbind(data, codes))
-  attr(out, "llmCoder_codebook") <- codebook
-  attr(out, "llmCoder_id") <- id_name
+  attr(out, "saydo_codebook") <- codebook
+  attr(out, "saydo_id") <- id_name
   out
 }
 

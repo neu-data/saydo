@@ -20,28 +20,31 @@ options(width = 100, pillar.width = 100)
 </div>
 ```
 
-# llmCoder <img src="man/figures/logo.png" align="right" height="139" alt="llmCoder logo" />
+# saydo <img src="man/figures/logo.png" align="right" height="139" alt="saydo logo" />
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/neu-data/llmCoder/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/neu-data/llmCoder/actions/workflows/R-CMD-check.yaml)
-[![pkgdown](https://img.shields.io/badge/docs-pkgdown-055F56?style=flat)](https://neu-data.github.io/llmCoder/)
+[![R-CMD-check](https://github.com/neu-data/saydo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/neu-data/saydo/actions/workflows/R-CMD-check.yaml)
+[![pkgdown](https://img.shields.io/badge/docs-pkgdown-055F56?style=flat)](https://neu-data.github.io/saydo/)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-0B376C.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 ![Neudata](https://img.shields.io/badge/Neudata-R%20package-04242F?style=flat)
 <!-- badges: end -->
 
-**Automated mixed-methods coding with large language models.**
+**What people say, and what they do.**
 
-llmCoder applies a qualitative codebook to text with an LLM, then tests those
-codes against your participants' quantitative data, all in one reproducible
-R workflow.
+saydo measures the *say-do gap*: whether the themes in what people say
+(interviews, open survey answers, feedback, support tickets) go with
+differences in what they do (session logs, errors, adherence, outcomes).
+It codes the text with an LLM, checks that coding against a human, links
+the codes to each participant's quantitative data, and tests every theme
+against every metric, in one reproducible R workflow.
 
-Packages such as quallmer use LLMs to code text, and tools like NVivo and
-MAXQDA let you cross-tabulate hand-applied codes against participant
-attributes. llmCoder combines the two. It codes the text automatically, links
-the codes to numeric metadata such as session logs, survey scores or
-outcomes, and tells you which themes go with real differences in behaviour.
-It also lets you check the LLM's coding against a human coder before you
-trust any of it.
+LLM coding on its own is already well served:
+[quallmer](https://cran.r-project.org/package=quallmer) codes text against
+a codebook and validates it thoroughly. What saydo adds is the step after
+coding, which MAXQDA offers as "qualitative themes by quantitative groups"
+but R has lacked: joining codes to external participant data, rolling
+segment codes up to participants, and testing theme-by-metric differences
+with adjusted p-values and effect sizes.
 
 ```
 transcripts ──► llm_auto_code() ──► code_agreement()     is the LLM coding reliable?
@@ -53,11 +56,11 @@ behavioural logs ──────┴──────────► cross_ta
 
 ## Installation
 
-llmCoder is not on CRAN yet. Install the development version from GitHub:
+saydo is not on CRAN yet. Install the development version from GitHub:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("neu-data/llmCoder")
+remotes::install_github("neu-data/saydo")
 ```
 
 You also need an API key for an LLM provider supported by
@@ -70,7 +73,7 @@ The package includes a simulated dataset and an offline keyword coder, so
 you can try the whole workflow without an API key.
 
 ```{r data}
-library(llmCoder)
+library(saydo)
 
 users <- mock_mixed_data(n_users = 120, seed = 42)
 users
@@ -202,7 +205,7 @@ segments. The codes are then joined to `participant_logs` by
 
 ## Learn more
 
-- [Getting started](https://neu-data.github.io/llmCoder/articles/llmCoder.html):
+- [Getting started](https://neu-data.github.io/saydo/articles/saydo.html):
   the full workflow, including a worked agreement check and segment-level
   coding.
 - [quant2qual](https://github.com/neu-data/quant2qual), the companion

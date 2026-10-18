@@ -16,8 +16,8 @@ test_that("llm_auto_code adds one logical column per code", {
   coded <- llm_auto_code(df, user_id, transcript_feedback, codes, coder = mock_coder())
   expect_equal(nrow(coded), 30)
   for (code in codes) expect_type(coded[[code]], "logical")
-  expect_equal(names(attr(coded, "llmCoder_codebook")), codes)
-  expect_equal(attr(coded, "llmCoder_id"), "user_id")
+  expect_equal(names(attr(coded, "saydo_codebook")), codes)
+  expect_equal(attr(coded, "saydo_id"), "user_id")
 
   # string column names work too
   coded2 <- llm_auto_code(df, "user_id", "transcript_feedback", codes, coder = mock_coder())

@@ -1,4 +1,4 @@
 library(testthat)
-library(llmCoder)
+library(saydo)
 
-test_check("llmCoder")
+test_check("saydo")

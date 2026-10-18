@@ -39,7 +39,7 @@ to plug in another backend, or \code{\link[=mock_coder]{mock_coder()}} for offli
 }
 \value{
 \code{data} with one logical column per code. Missing or empty texts get
-\code{NA}. The codebook is stored in the \code{"llmCoder_codebook"} attribute so
+\code{NA}. The codebook is stored in the \code{"saydo_codebook"} attribute so
 \code{\link[=cross_tab_themes]{cross_tab_themes()}} can find the code columns automatically.
 }
 \description{

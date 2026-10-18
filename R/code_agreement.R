@@ -49,11 +49,11 @@ code_agreement <- function(llm_coded, human_coded, id_col = NULL, themes = NULL,
   if (!is.data.frame(llm_coded) || !is.data.frame(human_coded)) {
     cli::cli_abort("{.arg llm_coded} and {.arg human_coded} must be data frames.")
   }
-  id_name <- id_col %||% attr(llm_coded, "llmCoder_id")
+  id_name <- id_col %||% attr(llm_coded, "saydo_id")
   if (is.null(id_name)) {
     cli::cli_abort("Supply {.arg id_col}; {.arg llm_coded} has no stored ID column.")
   }
-  themes <- themes %||% names(attr(llm_coded, "llmCoder_codebook"))
+  themes <- themes %||% names(attr(llm_coded, "saydo_codebook"))
   if (is.null(themes)) {
     cli::cli_abort("Supply {.arg themes}; {.arg llm_coded} has no stored codebook.")
   }

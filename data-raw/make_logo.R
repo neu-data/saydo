@@ -1,11 +1,11 @@
 # ---------------------------------------------------------------------------
-# Builds the llmCoder hex logo and the pkgdown favicons.
+# Builds the saydo hex logo and the pkgdown favicons.
 #
 # The motif is the package in one picture: lines of transcript with
 # NVivo-style coding stripes beside them, and on the right a small forest
 # plot whose points share the stripes' colours, i.e. each code linked to its
-# effect on a metric. Flat indigo risograph-style colours, a light "llm" and heavy
-# "Coder" so the name cannot be misread, and neu-data.com along the
+# effect on a metric. Flat indigo risograph-style colours, a light "say" and a
+# heavy "do" (the two halves of the motif), and neu-data.com along the
 # lower-right edge in the style of the tidyverse stickers.
 #
 # Run from the package root:  source("data-raw/make_logo.R")
@@ -106,16 +106,16 @@ draw_logo <- function(p) {
                 gp = gpar(fill = p$codes[k], col = p$ring, lwd = 5))
   }
 
-  # wordmark: light "llm" + heavy "Coder", centred together
-  size <- 76
-  w1 <- convertWidth(grobWidth(textGrob("llm", gp = gpar(fontfamily = "SegoeLight", fontsize = size))),
+  # wordmark: light "say" + heavy "do", centred together
+  size <- 96
+  w1 <- convertWidth(grobWidth(textGrob("say", gp = gpar(fontfamily = "SegoeLight", fontsize = size))),
                      "native", valueOnly = TRUE)
-  w2 <- convertWidth(grobWidth(textGrob("Coder", gp = gpar(fontfamily = "SegoeHeavy", fontsize = size))),
+  w2 <- convertWidth(grobWidth(textGrob("do", gp = gpar(fontfamily = "SegoeHeavy", fontsize = size))),
                      "native", valueOnly = TRUE)
   start <- CX - (w1 + w2 + 3) / 2
-  grid.text("llm", start, 176, just = c("left", "centre"), default.units = "native",
+  grid.text("say", start, 176, just = c("left", "centre"), default.units = "native",
             gp = gpar(fontfamily = "SegoeLight", fontsize = size, col = al(p$ink, 0.8)))
-  grid.text("Coder", start + w1 + 3, 176, just = c("left", "centre"), default.units = "native",
+  grid.text("do", start + w1 + 3, 176, just = c("left", "centre"), default.units = "native",
             gp = gpar(fontfamily = "SegoeHeavy", fontsize = size, col = p$ink))
 
   grid.text("neu-data.com", 386, 116, rot = 30, default.units = "native",
@@ -131,7 +131,7 @@ render_master <- function(p, file) {
   magick::image_read(file)
 }
 
-if (!isTRUE(getOption("llmCoder.logo_preview"))) {
+if (!isTRUE(getOption("saydo.logo_preview"))) {
   logo <- render_master(palettes[[PALETTE]], tempfile(fileext = ".png"))
   dir.create("man/figures", showWarnings = FALSE, recursive = TRUE)
   magick::image_write(magick::image_resize(logo, paste0(W, "x", H)), "man/figures/logo.png", format = "png")
@@ -160,8 +160,8 @@ if (!isTRUE(getOption("llmCoder.logo_preview"))) {
     "pkgdown/favicon/favicon.svg")
   writeLines(c(
     "{",
-    '  "name": "llmCoder",',
-    '  "short_name": "llmCoder",',
+    '  "name": "saydo",',
+    '  "short_name": "saydo",',
     '  "icons": [',
     '    {"src": "/web-app-manifest-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable"},',
     '    {"src": "/web-app-manifest-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}',

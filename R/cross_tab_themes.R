@@ -43,7 +43,7 @@ cross_tab_themes <- function(coded_data, metric_col, themes = NULL,
     cli::cli_abort("{.arg coded_data} must be a data frame.")
   }
   if (is.null(themes)) {
-    themes <- names(attr(coded_data, "llmCoder_codebook"))
+    themes <- names(attr(coded_data, "saydo_codebook"))
     if (is.null(themes)) {
       cli::cli_abort("Supply {.arg themes}; {.arg coded_data} has no stored codebook.")
     }
@@ -55,7 +55,7 @@ cross_tab_themes <- function(coded_data, metric_col, themes = NULL,
 
   analysis <- coded_data
   if (!is.null(metrics)) {
-    id_name <- id_col %||% attr(coded_data, "llmCoder_id")
+    id_name <- id_col %||% attr(coded_data, "saydo_id")
     if (is.null(id_name)) {
       cli::cli_abort("Supply {.arg id_col} to join {.arg metrics} to the coded data.")
     }

@@ -1,22 +1,22 @@
-Package: llmCoder
-Title: Automated Mixed-Methods Coding with Large Language Models
+Package: saydo
+Title: Link What People Say to What They Do with LLM-Coded Themes
 Version: 0.1.0
 Authors@R: c(
     person("Bernard Isekah", "Osangir", , "b.osangir@gmail.com", role = c("aut", "cre")),
     person("Neudata Consulting Ltd", role = c("cph", "fnd"))
   )
-Description: Applies a qualitative codebook to text with large language
-    models through 'ellmer' structured output, then links the resulting
-    theme codes to participants' quantitative metadata. Validates the
-    automated codes against a human-coded sample with Cohen's kappa,
-    precision and recall, tests whether a numeric metric differs when each
-    theme is present with Welch's t-test and multiple-comparison
-    adjustment, and plots the results. Segment-level transcripts can be
-    aggregated to participants before linking. Developed by Neudata
-    Consulting Ltd.
+Description: Measures the say-do gap in mixed-methods data: whether themes
+    in what people say go with differences in what they do. Codes free text
+    against a codebook with large language models through 'ellmer', or any
+    coder function, and validates the codes against a human-coded sample
+    with Cohen's kappa, precision and recall. Links the codes to
+    participants' behavioural or outcome data, aggregating segment-level
+    transcripts to participants where needed, and tests each theme against
+    each metric with Welch's t-test and multiple-comparison adjustment.
+    Developed by Neudata Consulting Ltd.
 License: MIT + file LICENSE
-URL: https://neu-data.github.io/llmCoder/, https://github.com/neu-data/llmCoder
-BugReports: https://github.com/neu-data/llmCoder/issues
+URL: https://neu-data.github.io/saydo/, https://github.com/neu-data/saydo
+BugReports: https://github.com/neu-data/saydo/issues
 Depends:
     R (>= 4.1)
 Imports:

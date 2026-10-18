@@ -1,8 +1,8 @@
 ---
-title: "Getting started with llmCoder"
+title: "Getting started with saydo"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Getting started with llmCoder}
+  %\VignetteIndexEntry{Getting started with saydo}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -12,7 +12,7 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>", fig.width = 7, fig.height
 options(pillar.width = 90)
 ```
 
-llmCoder links what people *say* to what they *do*. It applies a
+saydo links what people *say* to what they *do*. It applies a
 qualitative codebook to text with a large language model, checks the coding
 against a human coder, and then tests whether each theme goes with a
 difference in a quantitative metric.
@@ -22,7 +22,7 @@ runs offline with `mock_coder()`, a keyword-based stand-in for the LLM, so
 no API key is needed. The step that calls a real model is shown but not run.
 
 ```{r setup}
-library(llmCoder)
+library(saydo)
 ```
 
 ## The data
